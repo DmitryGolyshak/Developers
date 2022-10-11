@@ -186,3 +186,34 @@ function getNum() {
     }
     return arr;
 }
+
+
+
+function doubleMaxNum(a) {
+    let arr = [];
+    while (a >= 1) {
+        if (a % 10 == 0) {
+            a = a / 10;
+            arr.push(0);
+        } else if (a < 10) {
+            arr.push(a);
+            break;
+        } else {
+            arr.push(a % 10);
+            a = (a - (a % 10)) / 10;
+        }
+    }
+    arr.reverse();
+    let max = Math.max(...arr);
+    const newArray = arr.reduce(function (previousValue, currentValue) {
+        if (currentValue == max) {
+            previousValue.push(currentValue);
+        }
+        previousValue.push(currentValue);
+        return (previousValue);
+    }, [])
+    //for (let i = 0; i < arr.length-1; i++)
+   // previousValue = previousValue.join('');
+    return newArray.join('');
+}
+doubleMaxNum(564638642);
