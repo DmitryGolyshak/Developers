@@ -1,54 +1,49 @@
-1.1
+//1.1
 function calcNod(a, b) {
-    let arr = [];
-    for (let c = 1; a / c >= 1 & b / c >= 1; c++) {
-        if (a % c == 0 & b % c == 0) {
-            arr.push(c);
+    let NOD;
+    for (let c = 1; a / c >= 1 && b / c >= 1; c++) {
+        if (a % c == 0 && b % c == 0) {
+            NOD = c;
         }
     }
-    return (arr[arr.length - 1]);
+    return NOD;
 }
-calcNod(24, 56);
 
-1.2
-function getPrimeNum(a) {
-    let b = 2;
-    while (a % b !== 0 & b <= a) {
+//1.2
+function getIsPrimeNum(a) {
+    let b = 2;//*
+    while (a % 2 !== 0 && a % b !== 0 && b <= a) {//оптимизация
         ++b;
     }
-    if (b == a) {
-        return ('Данное натуральное число является простым');
-    } else {
-        return ('Данное натуральное число не является простым');
-    }
-}
-getPrimeNum(13);
 
-1.3
+    return b == a;
+}
+
+//1.3
 function getSumNumber(a) {
-    let b = 0;
-    let c = 0;
-    while (a >= 1) {
-        if (a % 10 == 0) {
+    let sum = 0;
+    let count = 0;
+    while (a >= 1) {//упростить
+        let lastNum = a % 10;
+        if (lastNum == 0) {
             a = a / 10;
-            c = c + 1;
+            count++;
         } else if (a < 10) {
-            b = b + a;
-            c = c + 1;
+            sum += a;
+            count++;
             break;
         } else {
-            b = b + (a % 10);
-            a = a - (a % 10);
+            sum = sum + lastNum;
+            a = a - lastNum;
         }
     }
-    return (`Сумма цифр данного числа - ${b}, число состоит из ${c} цифр`);
+    return ({ sum, count });
 }
-getSumNumber(24);
 
-1.4
+//1.4
 function calcPerfectNum(a) {
     let arr = [];
-    for (let b = 1; a / b > 1; b++) {
+    for (let b = 1; a / b > 1; b++) {//название переменных, с reduce в while
         if (a % b == 0) {
             arr.push(b);
         }
@@ -64,11 +59,9 @@ function calcPerfectNum(a) {
         return ('Введенное число не является совершенным');
     }
 }
-calcPerfectNum(28);
 
-
-1.5
-function getSumCube(x) {
+//1.5
+function getSumCube(x) { //для всех чисел
     let a = "";
     while (x < 1000) {
         let b = x % 10;
@@ -81,11 +74,9 @@ function getSumCube(x) {
     }
     return a;
 }
-getSumCube(100);
 
-
-1.6
-function insertNine(a) {
+//1.6
+function insertNine(a) {//использовать методы массивов, названия переменных, вернуть число
     let arr = [];
     while (a >= 1) {
         if (a % 10 == 0) {
@@ -110,9 +101,8 @@ function insertNine(a) {
     }
     return (b);
 }
-insertNine(3475);
 
-1.7
+//1.7
 function calcNumSolutions(n) {
     let x, y;
     let c = 0;
@@ -125,10 +115,9 @@ function calcNumSolutions(n) {
     }
     return (c);
 }
-calcNumSolutions(18);
 
-1.8
-function doubleMaxNum(a) {
+//1.8
+function doubleMaxNum(a) {//разбивка цифер как отдельная функция
     let arr = [];
     let arr2 = [];
     while (a >= 1) {
@@ -166,10 +155,8 @@ function doubleMaxNum(a) {
     let num = (arr3.toString()).replaceAll(',', '');
     return (num);
 }
-doubleMaxNum(5574522);
 
-
-1.9
+//1.9
 function getNum() {
     let arr = [];
     for (let i = 1; i <= 9; i++) {
@@ -186,8 +173,6 @@ function getNum() {
     }
     return arr;
 }
-
-
 
 function doubleMaxNum(a) {
     let arr = [];
@@ -213,7 +198,7 @@ function doubleMaxNum(a) {
         return (previousValue);
     }, [])
     //for (let i = 0; i < arr.length-1; i++)
-   // previousValue = previousValue.join('');
+    // previousValue = previousValue.join('');
     return newArray.join('');
 }
 doubleMaxNum(564638642);
