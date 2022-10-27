@@ -49,4 +49,4 @@ getColorItems(collection, COLORS.red);
 getItemsBySize(collection, SIZE.M);
 const getFilteredItems = (items = [], colors = [], sizes = [], isAvailable = true) => items.filter(item => item.isAvailable === isAvailable && (!colors.length ? true : colors.some(color => color === item.color)) && (!sizes.length ? true : sizes.some(size => item.size === size)));
 getFilteredItems(collection, ['red'], ['S', 'M'], true);
-//1234
+//тест
