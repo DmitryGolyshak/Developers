@@ -1,20 +1,9 @@
 //3.1
 function getCheckValue(value) {
-    let result = [];
-    let arr = [...value];
-    function checkTheSameValue() {
-        return arr.some(function (element, index) {
-            for (; index <= arr.length - 1; index++) {
-                if (element === arr[index + 1]) {
-                    return true;
-                    break;
-                }
-            }
-        });
-        return checkTheSameValue();
-    }
+    const characters = value.split('');
+        const hasEquelValues = characters.some((a, indexA) => characters.some((b, indexB) => indexA !== indexB && a === b));
     function checkNumInValue() {
-        return arr.some(function (element) {
+        return characters.some(function (element) {
             if (isNaN(element)) {
                 return false;
             } else {
@@ -22,14 +11,9 @@ function getCheckValue(value) {
             }
         });
     }
-    result.push(value.length <= 7);
-    result.push(value[0] == value[0].toUpperCase());
-    result.push(checkTheSameValue());
-    result.push(checkNumInValue());
-    return result;
+    return value.length <= 7 && value[0] == value[0].toUpperCase() && !hasEquelValues && !checkNumInValue();
 }
 getCheckValue('Дмитрий');
-
 
 //3.2
 function textEditing(text) {
